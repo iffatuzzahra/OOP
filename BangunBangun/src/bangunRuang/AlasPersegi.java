@@ -4,7 +4,8 @@ package bangunRuang;
 import bangunDatar.Persegi;
 
 public class AlasPersegi extends Persegi {
-    public double volPrisma,volLimas,permukaanPrisma,permukaanLimas,sisiTegak;
+    public double volPrisma,volLimas,permukaanPrisma,permukaanLimas;
+    private double sisiTegakSegitiga,sisiTegak;
 
     public AlasPersegi(double sisi) {
         super(sisi);
@@ -22,7 +23,8 @@ public class AlasPersegi extends Persegi {
         return volLimas;
     }
     public double permukaanLimas() {
-        sisiTegak = super.getSisi()+Math.pow(super.getSisi(),2)/2;
+        sisiTegakSegitiga = Math.sqrt(Math.pow((super.getSisi()/2),2)+Math.pow(super.getSisi(),2)); 
+        sisiTegak = sisiTegakSegitiga*super.getSisi()/2;
         permukaanLimas = super.getLuas()+sisiTegak*4;
         return permukaanLimas;
     }
