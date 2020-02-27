@@ -4,8 +4,8 @@ package bangunRuang;
 import bangunDatar.Segitiga;
 
 public class AlasSegitiga extends Segitiga{
-    private double tinggi3;
-    public double volPrisma,volLimas,permukaanPrisma,permukaanLimas,sisiTegak;
+    private double tinggi3,sisiTegak,sisiTegakSegitiga;
+    public double volPrisma,volLimas,permukaanPrisma,permukaanLimas;
 
     public AlasSegitiga(double alas, double tinggi3) {
         super(alas);
@@ -25,7 +25,8 @@ public class AlasSegitiga extends Segitiga{
         return volLimas;
     }
     public double permukaanLimas() {
-        sisiTegak = super.getAlas()*tinggi3/2;
+        sisiTegakSegitiga = Math.sqrt(Math.pow((super.getAlas()/2),2)+Math.pow(tinggi3,2)); 
+        sisiTegak = super.getAlas()*sisiTegakSegitiga/2;
         permukaanLimas = sisiTegak*3+super.getluas();
         return permukaanLimas;
     }
